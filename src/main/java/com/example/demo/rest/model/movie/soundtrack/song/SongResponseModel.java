@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class SongResponseModel implements Serializable {
+
     private static final long serialVersionUID = 1173630571363201932L;
     private Long id;
     private String name;

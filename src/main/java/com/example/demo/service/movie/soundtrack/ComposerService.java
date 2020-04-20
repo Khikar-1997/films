@@ -2,7 +2,7 @@ package com.example.demo.service.movie.soundtrack;
 
 import com.example.demo.exception.ComposerNotFoundException;
 import com.example.demo.persistance.model.movie.soundtrack.composer.Composer;
-import com.example.demo.persistance.repository.soundtrack.composer.ComposerRepository;
+import com.example.demo.persistance.repository.movie.soundtrack.composer.ComposerRepository;
 import com.example.demo.rest.model.movie.soundtrack.composer.ComposerRequestModel;
 import com.example.demo.rest.model.movie.soundtrack.composer.ComposerResponseModel;
 import org.slf4j.Logger;

@@ -15,8 +15,16 @@ public class DirectorRequestModel implements Serializable {
     public DirectorRequestModel(String name, String surname, int age, Profession profession) {
         this.name = name;
         this.surname = surname;
-        this.age = age;
-        this.profession = profession;
+        if (age > 0 && age <= 100){
+            this.age = age;
+        } else {
+            throw new RuntimeException("Director age is not valid");
+        }
+        if(profession.equals(Profession.director)){
+            this.profession = profession;
+        } else {
+            throw new RuntimeException("Profession is not valid");
+        }
     }
 
     public DirectorRequestModel() {
@@ -43,7 +51,11 @@ public class DirectorRequestModel implements Serializable {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if (age > 0 && age <= 100){
+            this.age = age;
+        } else {
+            throw new RuntimeException("Director age is not valid");
+        }
     }
 
     public Profession getProfession() {
@@ -51,7 +63,11 @@ public class DirectorRequestModel implements Serializable {
     }
 
     public void setProfession(Profession profession) {
-        this.profession = profession;
+        if(profession.equals(Profession.director)){
+            this.profession = profession;
+        } else {
+            throw new RuntimeException("Profession is not valid");
+        }
     }
 
     public static long getSerialVersionUID() {

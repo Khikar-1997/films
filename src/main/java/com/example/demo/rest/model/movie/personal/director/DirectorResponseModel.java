@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class DirectorResponseModel implements Serializable {
+
     private static final long serialVersionUID = 5425045931637410461L;
     private Long id;
     private String name;

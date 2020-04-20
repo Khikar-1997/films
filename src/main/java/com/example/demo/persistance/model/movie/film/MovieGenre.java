@@ -11,4 +11,5 @@ public enum MovieGenre {
     HISTORICAL,
     MISTERY,
     ROMANCE
+
 }

@@ -1,11 +1,9 @@
 package com.example.demo.rest.model.movie.personal.producer;
 
 import com.example.demo.persistance.model.movie.personal.Profession;
-import com.example.demo.rest.model.movie.film.MovieResponseModel;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.Set;
 
 public class ProducerResponseModel implements Serializable {
     private static final long serialVersionUID = -5302955907559614961L;
@@ -14,15 +12,13 @@ public class ProducerResponseModel implements Serializable {
     private String surname;
     private int age;
     private Profession profession;
-    private Set<MovieResponseModel> movie;
 
-    public ProducerResponseModel(Long id, String name, String surname, int age, Profession profession, Set<MovieResponseModel> movie) {
+    public ProducerResponseModel(Long id, String name, String surname, int age, Profession profession) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.profession = profession;
-        this.movie = movie;
     }
 
     public ProducerResponseModel() {
@@ -72,14 +68,6 @@ public class ProducerResponseModel implements Serializable {
         return serialVersionUID;
     }
 
-    public Set<MovieResponseModel> getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Set<MovieResponseModel> movie) {
-        this.movie = movie;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,13 +77,12 @@ public class ProducerResponseModel implements Serializable {
                 Objects.equals(id, that.id) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(surname, that.surname) &&
-                profession == that.profession &&
-                Objects.equals(movie, that.movie);
+                profession == that.profession;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, age, profession, movie);
+        return Objects.hash(id, name, surname, age, profession);
     }
 
     @Override
@@ -106,7 +93,6 @@ public class ProducerResponseModel implements Serializable {
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
                 ", profession=" + profession +
-                ", movieId=" + movie +
                 '}';
     }
 }

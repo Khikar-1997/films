@@ -8,6 +8,7 @@ import java.util.Objects;
 
 @Entity
 public class Song extends AbstractBaseEntity {
+
     private String name;
     private String duration;
     @ManyToOne

@@ -10,6 +10,7 @@ import java.util.Objects;
 
 @Entity
 public class Soundtrack extends AbstractBaseEntity {
+
     private String duration;
     @OneToOne
     private Song song;

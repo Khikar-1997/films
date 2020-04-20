@@ -24,7 +24,7 @@ public class TrailerController {
     public ResponseEntity<TrailerResponseModel> create(@RequestBody TrailerRequestModel trailer) {
         LOGGER.info("Request to create trailer - {}", trailer);
         TrailerResponseModel createTrailer = trailerService.create(trailer);
-        LOGGER.info("Response of: create trailer - {}", createTrailer);
+        LOGGER.info("Response of: trailer successfully created - {}", createTrailer);
         return ResponseEntity.ok(createTrailer);
     }
 
@@ -32,7 +32,7 @@ public class TrailerController {
     public ResponseEntity<List<TrailerResponseModel>> selectAllTrailers() {
         LOGGER.info("Request to select all trailers");
         List<TrailerResponseModel> trailers = trailerService.selectAllTrailers();
-        LOGGER.info("Response of: select all trailers - {}", trailers);
+        LOGGER.info("Response of: all trailers successfully selected - {}", trailers);
         return ResponseEntity.ok(trailers);
     }
 
@@ -40,7 +40,7 @@ public class TrailerController {
     public ResponseEntity<TrailerResponseModel> findTrailerById(@PathVariable Long id) {
         LOGGER.info("Request to find trailer by id - {}", id);
         TrailerResponseModel trailer = trailerService.findTrailerById(id);
-        LOGGER.info("Response of: find trailer by id - {}", trailer);
+        LOGGER.info("Response of: trailer successfully be find by id - {}", trailer);
         return ResponseEntity.ok(trailer);
     }
 
@@ -48,7 +48,7 @@ public class TrailerController {
     public ResponseEntity<TrailerResponseModel> update(@PathVariable Long id, @RequestBody TrailerRequestModel trailer) {
         LOGGER.info("Request to update trailer by id - {} - {}", id, trailer);
         TrailerResponseModel updateTrailer = trailerService.update(id, trailer);
-        LOGGER.info("Response of: update trailer by id - {}", updateTrailer);
+        LOGGER.info("Response of: trailer successfully updated by id - {}", updateTrailer);
         return ResponseEntity.ok(updateTrailer);
     }
 
@@ -56,6 +56,6 @@ public class TrailerController {
     public void delete(@PathVariable Long id) {
         LOGGER.info("Request to delete trailer by id - {}", id);
         trailerService.delete(id);
-        LOGGER.info("Trailer successfully deleted");
+        LOGGER.info("Response of: trailer successfully deleted");
     }
 }

@@ -2,7 +2,7 @@ package com.example.demo.service.movie.soundtrack;
 
 import com.example.demo.exception.SingerNotFoundException;
 import com.example.demo.persistance.model.movie.soundtrack.singer.Singer;
-import com.example.demo.persistance.repository.soundtrack.singer.SingerRepository;
+import com.example.demo.persistance.repository.movie.soundtrack.singer.SingerRepository;
 import com.example.demo.rest.model.movie.soundtrack.singer.SingerRequestModel;
 import com.example.demo.rest.model.movie.soundtrack.singer.SingerResponseModel;
 import org.slf4j.Logger;

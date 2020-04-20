@@ -12,6 +12,7 @@ import java.util.Objects;
 
 @MappedSuperclass
 public abstract class AbstractBaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

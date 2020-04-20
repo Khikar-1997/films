@@ -1,5 +1,7 @@
 package com.example.demo.rest.model.movie.film;
 
+import com.example.demo.persistance.model.movie.film.MovieGenre;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -7,15 +9,17 @@ public class MovieRequestModel implements Serializable {
     private static final long serialVersionUID = -8917184814694667220L;
     private String name;
     private String duration;
+    private MovieGenre genre;
     private Long trailerId;
     private Long actorId;
     private Long directorId;
     private Long producerId;
     private Long soundtrackId;
 
-    public MovieRequestModel(String name, String duration, Long trailerId, Long actorId, Long directorId, Long producerId, Long soundtrackId) {
+    public MovieRequestModel(String name, String duration, MovieGenre genre, Long trailerId, Long actorId, Long directorId, Long producerId, Long soundtrackId) {
         this.name = name;
         this.duration = duration;
+        this.genre = genre;
         this.trailerId = trailerId;
         this.actorId = actorId;
         this.directorId = directorId;
@@ -86,6 +90,14 @@ public class MovieRequestModel implements Serializable {
         return serialVersionUID;
     }
 
+    public MovieGenre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(MovieGenre genre) {
+        this.genre = genre;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -93,6 +105,7 @@ public class MovieRequestModel implements Serializable {
         MovieRequestModel that = (MovieRequestModel) o;
         return Objects.equals(name, that.name) &&
                 Objects.equals(duration, that.duration) &&
+                genre == that.genre &&
                 Objects.equals(trailerId, that.trailerId) &&
                 Objects.equals(actorId, that.actorId) &&
                 Objects.equals(directorId, that.directorId) &&
@@ -102,7 +115,7 @@ public class MovieRequestModel implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, duration, trailerId, actorId, directorId, producerId, soundtrackId);
+        return Objects.hash(name, duration, genre, trailerId, actorId, directorId, producerId, soundtrackId);
     }
 
     @Override
@@ -110,6 +123,7 @@ public class MovieRequestModel implements Serializable {
         return "MovieRequestModel{" +
                 "name='" + name + '\'' +
                 ", duration='" + duration + '\'' +
+                ", genre=" + genre +
                 ", trailerId=" + trailerId +
                 ", actorId=" + actorId +
                 ", directorId=" + directorId +

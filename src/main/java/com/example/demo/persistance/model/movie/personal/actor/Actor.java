@@ -1,15 +1,12 @@
 package com.example.demo.persistance.model.movie.personal.actor;
 
 import com.example.demo.persistance.model.AbstractBaseEntity;
-import com.example.demo.persistance.model.movie.film.Movie;
 import com.example.demo.persistance.model.movie.personal.Profession;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.ManyToMany;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 public class Actor extends AbstractBaseEntity {
@@ -18,8 +15,6 @@ public class Actor extends AbstractBaseEntity {
     private int age;
     @Enumerated(EnumType.STRING)
     private Profession profession;
-    @ManyToMany
-    private Set<Movie> movie;
 
     public String getName() {
         return name;
@@ -53,14 +48,6 @@ public class Actor extends AbstractBaseEntity {
         this.profession = profession;
     }
 
-    public Set<Movie> getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Set<Movie> movie) {
-        this.movie = movie;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -70,13 +57,12 @@ public class Actor extends AbstractBaseEntity {
         return age == actor.age &&
                 Objects.equals(name, actor.name) &&
                 Objects.equals(surname, actor.surname) &&
-                profession == actor.profession &&
-                Objects.equals(movie, actor.movie);
+                profession == actor.profession;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), name, surname, age, profession, movie);
+        return Objects.hash(super.hashCode(), name, surname, age, profession);
     }
 
     @Override
@@ -86,7 +72,6 @@ public class Actor extends AbstractBaseEntity {
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
                 ", profession=" + profession +
-                ", movie=" + movie +
                 '}';
     }
 }

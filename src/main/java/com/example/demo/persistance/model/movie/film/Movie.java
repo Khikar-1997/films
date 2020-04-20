@@ -7,10 +7,8 @@ import com.example.demo.persistance.model.movie.personal.producer.Producer;
 import com.example.demo.persistance.model.movie.soundtrack.music.Soundtrack;
 import com.example.demo.persistance.model.movie.trailer.Trailer;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -18,14 +16,16 @@ import java.util.Set;
 public class Movie extends AbstractBaseEntity {
     private String name;
     private String duration;
+    @Enumerated(EnumType.STRING)
+    private MovieGenre genre;
     @OneToOne
     private Trailer trailer;
-    @ManyToMany(mappedBy = "movie")
-    private Set<Actor> actors;
+    @ManyToMany
+    private Set<Actor> actors = new HashSet<>();
     @ManyToOne
     private Director director;
-    @ManyToMany(mappedBy = "movie")
-    private Set<Producer> producers;
+    @ManyToMany
+    private Set<Producer> producers = new HashSet<>();
     @OneToOne
     private Soundtrack soundtrack;
 
@@ -85,6 +85,14 @@ public class Movie extends AbstractBaseEntity {
         this.producers = producers;
     }
 
+    public MovieGenre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(MovieGenre genre) {
+        this.genre = genre;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -93,6 +101,7 @@ public class Movie extends AbstractBaseEntity {
         Movie movie = (Movie) o;
         return Objects.equals(name, movie.name) &&
                 Objects.equals(duration, movie.duration) &&
+                genre == movie.genre &&
                 Objects.equals(trailer, movie.trailer) &&
                 Objects.equals(actors, movie.actors) &&
                 Objects.equals(director, movie.director) &&
@@ -102,7 +111,7 @@ public class Movie extends AbstractBaseEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), name, duration, trailer, actors, director, producers, soundtrack);
+        return Objects.hash(super.hashCode(), name, duration, genre, trailer, actors, director, producers, soundtrack);
     }
 
     @Override
@@ -110,6 +119,7 @@ public class Movie extends AbstractBaseEntity {
         return "Movie{" +
                 "name='" + name + '\'' +
                 ", duration='" + duration + '\'' +
+                ", genre=" + genre +
                 ", trailer=" + trailer +
                 ", actors=" + actors +
                 ", director=" + director +

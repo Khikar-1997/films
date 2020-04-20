@@ -11,14 +11,20 @@ public class ProducerRequestModel implements Serializable {
     private String surname;
     private int age;
     private Profession profession;
-    private Long movieId;
 
-    public ProducerRequestModel(String name, String surname, int age, Profession profession, Long movieId) {
+    public ProducerRequestModel(String name, String surname, int age, Profession profession) {
         this.name = name;
         this.surname = surname;
-        this.age = age;
-        this.profession = profession;
-        this.movieId = movieId;
+        if (age > 0 && age <= 100){
+            this.age = age;
+        } else {
+            throw new RuntimeException("Producer age is not valid");
+        }
+        if(profession.equals(Profession.producer)){
+            this.profession = profession;
+        } else {
+            throw new RuntimeException("Profession is not valid");
+        }
     }
 
     public ProducerRequestModel() {
@@ -45,7 +51,11 @@ public class ProducerRequestModel implements Serializable {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if (age > 0 && age <= 100){
+            this.age = age;
+        } else {
+            throw new RuntimeException("Producer age is not valid");
+        }
     }
 
     public Profession getProfession() {
@@ -53,15 +63,11 @@ public class ProducerRequestModel implements Serializable {
     }
 
     public void setProfession(Profession profession) {
-        this.profession = profession;
-    }
-
-    public Long getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(Long movieId) {
-        this.movieId = movieId;
+        if(profession.equals(Profession.producer)){
+            this.profession = profession;
+        } else {
+            throw new RuntimeException("Profession is not valid");
+        }
     }
 
     public static long getSerialVersionUID() {
@@ -76,13 +82,12 @@ public class ProducerRequestModel implements Serializable {
         return age == that.age &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(surname, that.surname) &&
-                profession == that.profession &&
-                Objects.equals(movieId, that.movieId);
+                profession == that.profession;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, age, profession, movieId);
+        return Objects.hash(name, surname, age, profession);
     }
 
     @Override
@@ -92,7 +97,6 @@ public class ProducerRequestModel implements Serializable {
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
                 ", profession=" + profession +
-                ", movieId=" + movieId +
                 '}';
     }
 }

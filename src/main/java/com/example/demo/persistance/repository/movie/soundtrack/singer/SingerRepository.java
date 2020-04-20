@@ -1,4 +1,4 @@
-package com.example.demo.persistance.repository.soundtrack.singer;
+package com.example.demo.persistance.repository.movie.soundtrack.singer;
 
 import com.example.demo.persistance.model.movie.soundtrack.singer.Singer;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -24,7 +24,7 @@ public class ComposerController {
     public ResponseEntity<ComposerResponseModel> create(@RequestBody ComposerRequestModel composer) {
         LOGGER.info("Request to create composer - {}", composer);
         ComposerResponseModel createComposer = composerService.create(composer);
-        LOGGER.info("Response of: create composer - {}", createComposer);
+        LOGGER.info("Response of: composer successfully created - {}", createComposer);
         return ResponseEntity.ok(createComposer);
     }
 
@@ -32,7 +32,7 @@ public class ComposerController {
     public ResponseEntity<List<ComposerResponseModel>> selectAllComposers() {
         LOGGER.info("Request to select all composers");
         List<ComposerResponseModel> composers = composerService.selectAllComposers();
-        LOGGER.info("Response of: select all composers - {}", composers);
+        LOGGER.info("Response of: all composers successfully selected - {}", composers);
         return ResponseEntity.ok(composers);
     }
 
@@ -40,7 +40,7 @@ public class ComposerController {
     public ResponseEntity<ComposerResponseModel> findComposerById(@PathVariable Long id) {
         LOGGER.info("Request to find composer by id - {}", id);
         ComposerResponseModel composer = composerService.findComposerById(id);
-        LOGGER.info("Response of: find composer by id - {}", composer);
+        LOGGER.info("Response of: composer successfully be find by id - {}", composer);
         return ResponseEntity.ok(composer);
     }
 
@@ -48,7 +48,7 @@ public class ComposerController {
     public ResponseEntity<ComposerResponseModel> update(@RequestBody ComposerRequestModel composer, @PathVariable Long id) {
         LOGGER.info("Request to update composer by id - {} - {}", id, composer);
         ComposerResponseModel updateComposer = composerService.update(id, composer);
-        LOGGER.info("Response of: update composer by id - {}", updateComposer);
+        LOGGER.info("Response of: composer successfully updated by id - {}", updateComposer);
         return ResponseEntity.ok(updateComposer);
     }
 
@@ -56,6 +56,6 @@ public class ComposerController {
     public void delete(@PathVariable Long id) {
         LOGGER.info("Request to delete composer by id - {}", id);
         composerService.delete(id);
-        LOGGER.info("Composer successfully deleted");
+        LOGGER.info("Response of: composer successfully deleted");
     }
 }

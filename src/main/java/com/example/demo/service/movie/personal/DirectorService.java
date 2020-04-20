@@ -2,7 +2,7 @@ package com.example.demo.service.movie.personal;
 
 import com.example.demo.exception.DirectorNotFoundException;
 import com.example.demo.persistance.model.movie.personal.director.Director;
-import com.example.demo.persistance.repository.personal.DirectorRepository;
+import com.example.demo.persistance.repository.movie.personal.DirectorRepository;
 import com.example.demo.rest.model.movie.personal.director.DirectorRequestModel;
 import com.example.demo.rest.model.movie.personal.director.DirectorResponseModel;
 import org.slf4j.Logger;

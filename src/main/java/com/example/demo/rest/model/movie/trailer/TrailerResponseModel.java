@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class TrailerResponseModel implements Serializable {
+
     private static final long serialVersionUID = -1754293582124465902L;
     private Long id;
     private String duration;

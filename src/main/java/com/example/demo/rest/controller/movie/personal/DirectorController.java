@@ -24,7 +24,7 @@ public class DirectorController {
     public ResponseEntity<DirectorResponseModel> create(@RequestBody DirectorRequestModel director) {
         LOGGER.info("Request to create director - {}", director);
         DirectorResponseModel createDirector = directorService.create(director);
-        LOGGER.info("Response of: create director - {}", createDirector);
+        LOGGER.info("Response of: director successfully created - {}", createDirector);
         return ResponseEntity.ok(createDirector);
     }
 
@@ -32,7 +32,7 @@ public class DirectorController {
     public ResponseEntity<List<DirectorResponseModel>> selectAllDirectors() {
         LOGGER.info("Request to select all directors");
         List<DirectorResponseModel> allDirectors = directorService.selectAllDirectors();
-        LOGGER.info("Response of: select all directors - {}", allDirectors);
+        LOGGER.info("Response of: all directors successfully selected - {}", allDirectors);
         return ResponseEntity.ok(allDirectors);
     }
 
@@ -40,7 +40,7 @@ public class DirectorController {
     public ResponseEntity<DirectorResponseModel> findDirectorById(@PathVariable Long id) {
         LOGGER.info("Request to find director by id - {}", id);
         DirectorResponseModel director = directorService.findDirectorById(id);
-        LOGGER.info("Response of: find director by id - {}", director);
+        LOGGER.info("Response of: director successfully be find by id - {}", director);
         return ResponseEntity.ok(director);
     }
 
@@ -48,14 +48,14 @@ public class DirectorController {
     public ResponseEntity<DirectorResponseModel> update(@PathVariable Long id, @RequestBody DirectorRequestModel director) {
         LOGGER.info("Request to update director by id - {} - {}", id, director);
         DirectorResponseModel updateDirector = directorService.update(id, director);
-        LOGGER.info("Response of: update director by id - {}", updateDirector);
+        LOGGER.info("Response of: director successfully updated by id - {}", updateDirector);
         return ResponseEntity.ok(updateDirector);
     }
 
     @DeleteMapping(value = "/director/{id}")
-    public void delete(@RequestBody Long id) {
+    public void delete(@PathVariable Long id) {
         LOGGER.info("Request to delete director by id - {}", id);
         directorService.delete(id);
-        LOGGER.info("Director successfully deleted");
+        LOGGER.info("Response of: director successfully deleted");
     }
 }

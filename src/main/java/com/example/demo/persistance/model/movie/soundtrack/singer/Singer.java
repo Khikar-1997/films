@@ -7,6 +7,7 @@ import java.util.Objects;
 
 @Entity
 public class Singer extends AbstractBaseEntity {
+
     private String name;
     private String surname;
 

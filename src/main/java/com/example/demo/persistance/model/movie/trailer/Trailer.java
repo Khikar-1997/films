@@ -7,6 +7,7 @@ import java.util.Objects;
 
 @Entity
 public class Trailer extends AbstractBaseEntity {
+
     private String duration;
 
     public String getDuration() {

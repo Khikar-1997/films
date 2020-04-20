@@ -2,7 +2,7 @@ package com.example.demo.service.movie.trailer;
 
 import com.example.demo.exception.TrailerNotFoundException;
 import com.example.demo.persistance.model.movie.trailer.Trailer;
-import com.example.demo.persistance.repository.trailer.TrailerRepository;
+import com.example.demo.persistance.repository.movie.trailer.TrailerRepository;
 import com.example.demo.rest.model.movie.trailer.TrailerRequestModel;
 import com.example.demo.rest.model.movie.trailer.TrailerResponseModel;
 import org.slf4j.Logger;

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class TrailerRequestModel implements Serializable {
+
     private static final long serialVersionUID = 8040525118653889591L;
     private String duration;
 

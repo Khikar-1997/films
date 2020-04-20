@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class SoundtrackResponseModel implements Serializable {
+
     private static final long serialVersionUID = 6786637002103315706L;
     private Long id;
     private String duration;

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class SingerRequestModel implements Serializable {
+
     private static final long serialVersionUID = 8005064867345712737L;
     private String name;
     private String surname;

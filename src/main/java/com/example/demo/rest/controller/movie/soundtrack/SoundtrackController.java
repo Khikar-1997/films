@@ -24,7 +24,7 @@ public class SoundtrackController {
     public ResponseEntity<SoundtrackResponseModel> create(@RequestBody SoundtrackRequestModel soundtrack) {
         LOGGER.info("Request to create soundtrack - {}", soundtrack);
         SoundtrackResponseModel createSoundtrack = soundtrackService.create(soundtrack);
-        LOGGER.info("Response of: create soundtrack");
+        LOGGER.info("Response of: soundtrack successfully created - {}",createSoundtrack);
         return ResponseEntity.ok(createSoundtrack);
     }
 
@@ -32,7 +32,7 @@ public class SoundtrackController {
     public ResponseEntity<List<SoundtrackResponseModel>> selectAllSoundtracks() {
         LOGGER.info("Request to select all soundtracks");
         List<SoundtrackResponseModel> soundtracks = soundtrackService.selectAllSoundtracks();
-        LOGGER.info("Response of: select all soundtracks - {}", soundtracks);
+        LOGGER.info("Response of: all soundtracks successfully selected - {}", soundtracks);
         return ResponseEntity.ok(soundtracks);
     }
 
@@ -40,7 +40,7 @@ public class SoundtrackController {
     public ResponseEntity<SoundtrackResponseModel> findSoundtrackById(@PathVariable Long id) {
         LOGGER.info("Request to find soundtrack by id - {}", id);
         SoundtrackResponseModel soundtrack = soundtrackService.findSoundtrackById(id);
-        LOGGER.info("Response of: find soundtrack by id - {}", soundtrack);
+        LOGGER.info("Response of: soundtrack successfully be find by id - {}", soundtrack);
         return ResponseEntity.ok(soundtrack);
     }
 
@@ -48,7 +48,7 @@ public class SoundtrackController {
     public ResponseEntity<SoundtrackResponseModel> update(@PathVariable Long id, @RequestBody SoundtrackRequestModel soundtrack) {
         LOGGER.info("Request to update soundtrack by id - {} -{}", id, soundtrack);
         SoundtrackResponseModel updateSoundtrack = soundtrackService.update(id, soundtrack);
-        LOGGER.info("Response of: update soundtrack by id - {}", updateSoundtrack);
+        LOGGER.info("Response of: soundtrack successfully updated by id - {}", updateSoundtrack);
         return ResponseEntity.ok(updateSoundtrack);
     }
 
@@ -56,6 +56,6 @@ public class SoundtrackController {
     public void delete(@PathVariable Long id) {
         LOGGER.info("Request to delete soundtrack by id - {}", id);
         soundtrackService.delete(id);
-        LOGGER.info("Soundtrack successfully deleted");
+        LOGGER.info("Response of: soundtrack successfully deleted");
     }
 }

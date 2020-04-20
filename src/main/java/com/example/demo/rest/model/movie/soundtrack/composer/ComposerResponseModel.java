@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class ComposerResponseModel implements Serializable {
+
     private static final long serialVersionUID = 6799199707402525033L;
     private Long id;
     private String name;

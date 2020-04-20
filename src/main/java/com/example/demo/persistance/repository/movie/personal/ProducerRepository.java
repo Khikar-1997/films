@@ -1,4 +1,4 @@
-package com.example.demo.persistance.repository.personal;
+package com.example.demo.persistance.repository.movie.personal;
 
 import com.example.demo.persistance.model.movie.personal.producer.Producer;
 import org.springframework.data.jpa.repository.JpaRepository;

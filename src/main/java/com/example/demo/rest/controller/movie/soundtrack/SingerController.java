@@ -25,7 +25,7 @@ public class SingerController {
     public ResponseEntity<SingerResponseModel> create(@RequestBody SingerRequestModel singer) {
         LOGGER.info("Request to create singer - {}", singer);
         SingerResponseModel createSinger = singerService.create(singer);
-        LOGGER.info("Response of: create singer - {}", createSinger);
+        LOGGER.info("Response of: singer successfully created - {}", createSinger);
         return ResponseEntity.ok(createSinger);
     }
 
@@ -33,7 +33,7 @@ public class SingerController {
     public ResponseEntity<List<SingerResponseModel>> selectAllSingers() {
         LOGGER.info("Request to select all singers");
         List<SingerResponseModel> singers = singerService.selectAllSingers();
-        LOGGER.info("Response of: select all singers - {}", singers);
+        LOGGER.info("Response of: all singers successfully selected - {}", singers);
         return ResponseEntity.ok(singers);
     }
 
@@ -41,7 +41,7 @@ public class SingerController {
     public ResponseEntity<SingerResponseModel> findSingerById(@PathVariable Long id) {
         LOGGER.info("Request to find singer by id - {}", id);
         SingerResponseModel singer = singerService.findSingerById(id);
-        LOGGER.info("Response of: find singer by id - {}", singer);
+        LOGGER.info("Response of: singer successfully be find by id - {}", singer);
         return ResponseEntity.ok(singer);
     }
 
@@ -49,7 +49,7 @@ public class SingerController {
     public ResponseEntity<SingerResponseModel> update(@PathVariable Long id, @RequestBody SingerRequestModel singer) {
         LOGGER.info("Request to update singer by id - {} - {}", id, singer);
         SingerResponseModel updateSinger = singerService.update(id, singer);
-        LOGGER.info("Response of: update singer by id - {}", updateSinger);
+        LOGGER.info("Response of: singer successfully updated by id - {}", updateSinger);
         return ResponseEntity.ok(updateSinger);
     }
 
@@ -57,6 +57,6 @@ public class SingerController {
     public void delete(@PathVariable Long id) {
         LOGGER.info("Request to delete singer by id");
         singerService.delete(id);
-        LOGGER.info("Singer successfully deleted");
+        LOGGER.info("Response of: singer successfully deleted");
     }
 }

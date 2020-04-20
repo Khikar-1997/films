@@ -1,4 +1,4 @@
-package com.example.demo.persistance.repository.trailer;
+package com.example.demo.persistance.repository.movie.trailer;
 
 import com.example.demo.persistance.model.movie.trailer.Trailer;
 import org.springframework.data.jpa.repository.JpaRepository;

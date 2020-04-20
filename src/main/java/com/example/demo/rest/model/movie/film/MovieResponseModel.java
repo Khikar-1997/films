@@ -1,12 +1,14 @@
 package com.example.demo.rest.model.movie.film;
 
-import com.example.demo.rest.model.movie.personal.actor.ActorResponseModel;
+import com.example.demo.persistance.model.movie.film.MovieGenre;
+import com.example.demo.persistance.model.movie.personal.actor.Actor;
+import com.example.demo.persistance.model.movie.personal.producer.Producer;
 import com.example.demo.rest.model.movie.personal.director.DirectorResponseModel;
-import com.example.demo.rest.model.movie.personal.producer.ProducerResponseModel;
 import com.example.demo.rest.model.movie.soundtrack.music.SoundtrackResponseModel;
 import com.example.demo.rest.model.movie.trailer.TrailerResponseModel;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,19 +17,21 @@ public class MovieResponseModel implements Serializable {
     private Long id;
     private String name;
     private String duration;
-    private Set<ActorResponseModel> actor;
+    private MovieGenre genre;
+    private Set<Actor> actors = new HashSet<>();
     private DirectorResponseModel director;
-    private Set<ProducerResponseModel> producer;
+    private Set<Producer> producers = new HashSet<>();
     private SoundtrackResponseModel soundtrack;
     private TrailerResponseModel trailer;
 
-    public MovieResponseModel(Long id, String name, String duration, Set<ActorResponseModel> actor, DirectorResponseModel director, Set<ProducerResponseModel> producer, SoundtrackResponseModel soundtrack, TrailerResponseModel trailer) {
+    public MovieResponseModel(Long id, String name, String duration, MovieGenre genre, Set<Actor> actors, DirectorResponseModel director, Set<Producer> producers, SoundtrackResponseModel soundtrack, TrailerResponseModel trailer) {
         this.id = id;
         this.name = name;
         this.duration = duration;
-        this.actor = actor;
+        this.genre = genre;
+        this.actors = actors;
         this.director = director;
-        this.producer = producer;
+        this.producers = producers;
         this.soundtrack = soundtrack;
         this.trailer = trailer;
     }
@@ -87,20 +91,28 @@ public class MovieResponseModel implements Serializable {
         return serialVersionUID;
     }
 
-    public Set<ActorResponseModel> getActor() {
-        return actor;
+    public Set<Actor> getActors() {
+        return actors;
     }
 
-    public void setActor(Set<ActorResponseModel> actor) {
-        this.actor = actor;
+    public void setActors(Set<Actor> actors) {
+        this.actors = actors;
     }
 
-    public Set<ProducerResponseModel> getProducer() {
-        return producer;
+    public Set<Producer> getProducers() {
+        return producers;
     }
 
-    public void setProducer(Set<ProducerResponseModel> producer) {
-        this.producer = producer;
+    public void setProducers(Set<Producer> producers) {
+        this.producers = producers;
+    }
+
+    public MovieGenre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(MovieGenre genre) {
+        this.genre = genre;
     }
 
     @Override
@@ -111,16 +123,17 @@ public class MovieResponseModel implements Serializable {
         return Objects.equals(id, that.id) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(duration, that.duration) &&
-                Objects.equals(actor, that.actor) &&
+                genre == that.genre &&
+                Objects.equals(actors, that.actors) &&
                 Objects.equals(director, that.director) &&
-                Objects.equals(producer, that.producer) &&
+                Objects.equals(producers, that.producers) &&
                 Objects.equals(soundtrack, that.soundtrack) &&
                 Objects.equals(trailer, that.trailer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, duration, actor, director, producer, soundtrack, trailer);
+        return Objects.hash(id, name, duration, genre, actors, director, producers, soundtrack, trailer);
     }
 
     @Override
@@ -129,11 +142,12 @@ public class MovieResponseModel implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", duration='" + duration + '\'' +
-                ", actorId=" + actor +
-                ", directorId=" + director +
-                ", producerId=" + producer +
-                ", soundtrackId=" + soundtrack +
-                ", trailerId=" + trailer +
+                ", genre=" + genre +
+                ", actors=" + actors +
+                ", director=" + director +
+                ", producers=" + producers +
+                ", soundtrack=" + soundtrack +
+                ", trailer=" + trailer +
                 '}';
     }
 }
